@@ -9,12 +9,21 @@ app = Flask(__name__)
 @app.route('/hello')
 def hello():
     return 'hello world'
-@app.route('/zee')
-def Zee_news():
-    news_data= zeenews_helper.Zee_news()
+@app.route('/zee/latest')
+def Zee_news_latest():
+    news_data= zeenews_helper.Zee_news_latestnews()
     print(news_data)
     return news_data
-
+@app.route('/zee/sports')
+def Zee_news_sports():
+    news_data= zeenews_helper.Zee_news_sports()
+    print(news_data)
+    return news_data
+@app.route('/zee/buisness')
+def Zee_news_buisness():
+    news_data= zeenews_helper.Zee_news_buisness()
+    print(news_data)
+    return news_data
 
 @app.route('/economics')
 def economics_times():

@@ -1,33 +1,23 @@
 from bs4 import BeautifulSoup
 import requests
-from helpers.constant import constant
-from helpers.response_helper import formatting_response
+from constant import constant
+from response_helper import formatting_response
+from request_helper import get_fetch_data
 
-header={
+header=constant.ZEE_NEWS_HEADER
+proxy=constant.PROXY
 
-'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-'accept-encoding': 'gzip, deflate, br',
-'accept-language': 'en-US,en;q=0.9',
-'cache-control': 'max-age=0',
-'cookie': 'traffic_source=https://search.brave.com/; traffic_medium=Referral',
-'referer': 'https://zeenews.india.com/latest-news',
-'sec-fetch-dest': 'document',
-'sec-fetch-mode': 'navigate',
-'sec-fetch-site': 'same-origin',
-'sec-fetch-user': '?1',
-'sec-gpc': '1',
-'upgrade-insecure-requests': '1',
-'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'  
-}
-
-def Zee_news():
+def Zee_news_latestnews():
     data_to_send={}
     
     try:
         
-        url = constant.LASTEST_ZEE_NEWS_URL
-        response = requests.get(url,headers=header)
-        soup = BeautifulSoup(response.content, "html.parser")
+        #url = constant.LASTEST_ZEE_NEWS_URL
+        url="https://api.ipify.org?format=text"
+        response=get_fetch_data({"url":url,"headers":header})
+        print(response)
+        # response = requests.get(url,headers=header,proxies=proxy)
+        soup = BeautifulSoup(response, "html.parser")
         latest_news = soup.select(
             'div.container:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)')
         content = str(latest_news)
@@ -43,9 +33,63 @@ def Zee_news():
                 dict['link']=i.get('href')
             list.append(dict)
         data_to_send=formatting_response(True,list,'')
+        print(data_to_send)
     except Exception as  error:
         data_to_send=formatting_response(False,[],error)
+        print(data_to_send)
     return data_to_send
+def Zee_news_sports():
+    data_to_send={}
+    try:
+        url = constant.SPORTS_ZEE_NEWS_URL
+        response = requests.get(url,headers=header)
+        soup = BeautifulSoup(response.content, "html.parser")
+        sports_news = soup.select('body > div.container.catergory-section-container > div > div.col-md-9 > div.row.no-gutters > div.col-lg-5.col-12')
+        content = str(sports_news)
+        soup = BeautifulSoup(content, "html.parser")
+        lines = soup.select('li')
+        list = []
+        for i in lines:
+            dict = {}
+            soup = BeautifulSoup(str(i), "html.parser")
+            links = soup.select('a')
+            dict['headline'] = links[1].text
+            for i in links:
+                dict['link']=i.get('href')
+            list.append(dict)
+        data_to_send=formatting_response(True,list,'')
+        print(data_to_send)
+    except Exception as  error:
+        data_to_send=formatting_response(False,[],error)
+        print(data_to_send)
+    return data_to_send
+Zee_news_latestnews()
+def Zee_news_buisness():
+    data_to_send={}
+    try:
+        url = constant.BUISNESS_ZEE_NEWS_URL
+        response = requests.get(url,headers=header)
+        soup = BeautifulSoup(response.content, "html.parser")
+        sports_news = soup.select('body > div.container.catergory-section-container > div > div.col-md-9 > div.row.no-gutters > div.col-lg-5.col-12')
+        content = str(sports_news)
+        soup = BeautifulSoup(content, "html.parser")
+        lines = soup.select('li')
+        list = []
+        for i in lines:
+            dict = {}
+            soup = BeautifulSoup(str(i), "html.parser")
+            links = soup.select('a')
+            dict['headline'] = links[1].text
+            for i in links:
+                dict['link']=i.get('href')
+            list.append(dict)
+        data_to_send=formatting_response(True,list,'')
+        print(data_to_send)
+    except Exception as  error:
+        data_to_send=formatting_response(False,[],error)
+        print(data_to_send)
+    return data_to_send
+
 
 def fetch_data_from_zee_news_url(link):
     try:
