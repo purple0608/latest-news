@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 from flask import render_template
 from helpers import zeenews_helper
-from helpers import economic_news_helper
+from helpers import financial_express_helper
 app = Flask(__name__)
 
 @app.route('/hello')
@@ -27,7 +27,12 @@ def Zee_news_buisness():
 
 @app.route('/economics')
 def economics_times():
-    news_data= economic_news_helper.Economictimes_news()
+    news_data= financial_express_helper.Economictimes_news()
+    print(news_data)
+    return news_data
+@app.route('/financial')
+def financial_latestnews():
+    news_data= financial_express_helper.financial_express_latestnews
     print(news_data)
     return news_data
     
