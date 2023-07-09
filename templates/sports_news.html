@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediaMaven</title>
+  <style>
+    body {
+      color:white;
+    }
+
+    header {
+      background-color: maroon;
+      padding: 20px;
+      color: cream;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      width: 80px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    main {
+      padding: 40px;
+      background-color: cream;
+
+    }
+
+    footer {
+      background-color: maroon;
+      color: cream;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .one_quarterr {
+        width: 25%;
+        float: left;
+        padding: 10px;
+      }
+      
+      .heading {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .linklistt {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .linklistt li {
+        margin-bottom: 10px;
+      }
+      
+      .linklistt li a {
+        text-decoration: none;
+        color: #000;
+      }
+      
+      .linklistt li a:hover {
+        text-decoration: underline;
+      }
+      
+  </style>
+   <link href="{{ url_for('static', filename='layout.css') }}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='sports.jpg') }}" alt="">
+    <h1 style="color: white;">Sports News</h1>
+
+  </header>
+
+  <main>
+    <div class="one_quarterr">
+      
+      <ul class="nospace linklistt">
+          <li><a href={{datazs['data'][0]['link'] }}>{{datazs['data'][0]['headline'] }}</a></li>
+          <li><a href={{datazs['data'][1]['link'] }}>{{datazs['data'][1]['headline'] }}</a></li>
+          <li><a href={{datazs['data'][2]['link'] }}>{{datazs['data'][2]['headline'] }}</a></li>
+          <li><a href={{datazs['data'][3]['link'] }}>{{datazs['data'][3]['headline'] }}</a></li>
+          <li><a href={{datazs['data'][4]['link'] }}>{{datazs['data'][4]['headline'] }}</a></li>
+      </ul>
+  </div>
+  <footer>
+    &copy; 2023 MediaMaven. All rights reserved.
+  </footer>
+</body>
+</html>

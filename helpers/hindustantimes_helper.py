@@ -1,13 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
-from constant import constant
-from response_helper import formatting_response
-from request_helper import get_fetch_data
+from helpers.constant import constant
+from helpers.response_helper import formatting_response
+from helpers.request_helper import get_fetch_data
+import helpers.database as database
 
 header=constant.HINDUSTANTIMES_HEADER
 proxy=constant.PROXY
 
-def indiatvnews_latestnews():
+def hindustantimes_latestnews():
     data_to_send={}
     
     try:
@@ -32,15 +33,15 @@ def indiatvnews_latestnews():
                 continue
             if links[0]==None:
                 continue
-            print(links[0])
+            # print(links[0])
             dict['headline'] = links[0].text
             dict['link']=i.get('href')
             list.append(dict)
-            print(links)
+            # print(links)
         data_to_send=formatting_response(True,list,'')
         print(data_to_send)
     except Exception as  error:
         data_to_send=formatting_response(False,[],error)
         print(data_to_send)
     return data_to_send
-indiatvnews_latestnews()
+hindustantimes_latestnews()

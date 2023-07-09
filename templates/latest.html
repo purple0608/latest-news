@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediaMaven</title>
+  <style>
+    body {
+      color:white;
+    }
+
+    header {
+      background-color: maroon;
+      padding: 20px;
+      color: cream;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      width: 80px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    main {
+      padding: 40px;
+      background-color: cream;
+
+    }
+
+    
+  </style>
+   <link href="{{ url_for('static', filename='layout.css') }}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='cover2.jpg') }}" alt="">
+    <h1 style="color: white;">Latest News</h1>
+
+  </header>
+
+  <main>
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+    
+         
+    
+    
+            <hr class="btmspace-80">
+    
+            <ul class="nospace group overview">
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data1['data'][0]['image'] }}" alt=""  style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data1['data'][0]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data1['data'][0]['vendor'] }}</a></li>
+                            
+                        </ul>
+                        <footer class="nospace"><a class="btn" href={{data1['data'][0]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data2['data'][0]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data2['data'][0]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data2['data'][0]['vendor'] }}</a></li>
+                            
+                        </ul>
+                        <footer class="nospace"><a class="btn" href={{data2['data'][0]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data3['data'][0]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data3['data'][0]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data3['data'][0]['vendor'] }}</a></li>
+                            
+                        </ul>
+                        <footer class="nospace"><a class="btn" href={{data3['data'][0]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data1['data'][1]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data1['data'][1]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data1['data'][1]['vendor'] }}</a></li>
+                            
+                        </ul>
+                        <footer class="nospace"><a class="btn" href={{data1['data'][1]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data2['data'][1]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data2['data'][1]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href='#'>{{data2['data'][1]['vendor'] }}</a></li>
+                            
+                        </ul>
+                        
+                        <footer class="nospace"><a class="btn" href={{data2['data'][1]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data3['data'][1]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data3['data'][1]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data3['data'][1]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data3['data'][1]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data1['data'][2]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data1['data'][2]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data1['data'][2]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data2['data'][2]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data2['data'][2]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data2['data'][2]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data2['data'][2]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data2['data'][2]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data3['data'][2]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data3['data'][2]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data3['data'][2]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data3['data'][2]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data1['data'][3]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data1['data'][3]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data1['data'][3]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data1['data'][3]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data3['data'][3]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data3['data'][3]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data3['data'][3]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data3['data'][3]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data1['data'][4]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data1['data'][4]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data1['data'][4]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data1['data'][4]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data3['data'][6]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data3['data'][6]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data3['data'][6]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data3['data'][6]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><img src="{{data3['data'][5]['image'] }}" alt="" style="width: 200px; height: 200px; "></a>
+                        <h6 class="heading">{{data3['data'][5]['headline'] }}</h6>
+                        <ul class="nospace meta">
+                            <li><i class="fa fa-user"></i> <a href="#">{{data3['data'][5]['vendor'] }}</a></li>
+                            
+                        </ul>
+                       
+                        <footer class="nospace"><a class="btn" href={{data3['data'][5]['link'] }}>Full Story &raquo;</a></footer>
+                    </article>
+                </li>
+                
+
+
+                
+
+
+
+             
+                
+    
+            <div class="clear"></div>
+        </main>
+    </div>
+      
+  </main>
+
+  <footer>
+    &copy; 2023 MediaMaven. All rights reserved.
+  </footer>
+</body>
+</html>

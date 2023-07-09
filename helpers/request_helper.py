@@ -1,5 +1,5 @@
 import requests
-from constant import constant
+from helpers.constant import constant
 def get_fetch_data(params,proxy=False):
     proxies= {'http': 'http://3.111.55.27:80','https': 'http://3.111.55.27:80'}
     if not proxy:
