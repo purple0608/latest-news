@@ -38,15 +38,21 @@ def news18_latestnews():
                 for j in images:
                     dict['image']=j.get('src')
             dict['vendor']='news 18'
-            # database.save_data_to_db('headlines',dict)
+            database.update_or_create_data('news_headlines',dict,dict)
             list.append(dict)
+        new_list=[]
+        data_to_search={'vendor':'news 18'}
+        data=database.get_data_from_db('news_headlines',data_to_search)
+        for document in data:
+            # print(document)
+            new_list.append(document)
         # print(list)
-        data_to_send=formatting_response3(True,list,'')
+        data_to_send=formatting_response3(True,new_list,'')
         # print(data_to_send)
     except Exception as  error:
         data_to_send=formatting_response3(False,[],error)
         # print(data_to_send)
-    print(data_to_send)
+    # print(data_to_send)
     return data_to_send
 
-news18_latestnews()
+# news18_latestnews()

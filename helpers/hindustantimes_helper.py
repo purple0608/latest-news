@@ -37,11 +37,17 @@ def hindustantimes_latestnews():
             dict['headline'] = links[0].text
             dict['link']=i.get('href')
             list.append(dict)
+        new_list=[]
+        data=database.get_data_from_db('news_headlines','zeenews')
+        for document in data:
+            # print(document)
+            new_list.append(document)
             # print(links)
-        data_to_send=formatting_response(True,list,'')
-        print(data_to_send)
+        data_to_send=formatting_response(True,new_list,'')
+        
+        # print(data_to_send)
     except Exception as  error:
         data_to_send=formatting_response(False,[],error)
-        print(data_to_send)
+        # print(data_to_send)
     return data_to_send
-hindustantimes_latestnews()
+# hindustantimes_latestnews()

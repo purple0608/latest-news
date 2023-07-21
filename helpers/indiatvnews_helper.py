@@ -46,10 +46,16 @@ def indiatvnews_latestnews():
                     
             dict['vendor']='Indiatv news'
         
-            # database.save_data_to_db('headlines',dict)
+            database.update_or_create_data('news_headlines',dict,dict)
             list.append(dict)
+        new_list=[]
+        data_to_search={'vendor':'Indiatv news'}
+        data=database.get_data_from_db('news_headlines',data_to_search)
+        for document in data:
+            # print(document)
+            new_list.append(document)
         
-        data_to_send=formatting_response2(True,list,'')
+        data_to_send=formatting_response2(True,new_list,'')
     except Exception as  error:
         data_to_send=formatting_response2(False,[],error)
     # print(data_to_send)

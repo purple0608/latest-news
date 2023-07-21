@@ -37,9 +37,15 @@ def financial_express_latestnews():
                 for j in images:
                     dict['image']=j.get('src')
             dict['vendor']='financial express'
-            # database.save_data_to_db('headlines',dict)
+            database.update_or_create_data('news_headlines',dict,dict)
             list.append(dict)
-        data_to_send=formatting_response1(True,list,'')
+        new_list=[]
+        data_to_search={'vendor':'financial express'}
+        data=database.get_data_from_db('news_headlines',data_to_search)
+        for document in data:
+            # print(document)
+            new_list.append(document)
+        data_to_send=formatting_response1(True,new_list,'')
         # print(data_to_send)
     except Exception as  error:
         data_to_send=formatting_response1(False,[],error)
